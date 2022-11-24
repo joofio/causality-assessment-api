@@ -1,7 +1,7 @@
 library(plumber)
 #library(bnlearn)
 
-load("/Users/joaoalmeida/Downloads/ufn_form.RData")
+load("ufn_form.RData")
 
 
 
