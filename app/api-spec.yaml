@@ -1,0 +1,103 @@
+# api-spec.yaml
+openapi: 3.0.0
+servers:
+  - description: Localhost
+    url: http://127.0.0.1:5762
+info:
+  description: This is a simple Plumber API with the spec defined in an external file
+  version: 1.0.0
+  title: Simple Plumber
+
+paths:
+  /eval_quality/{target}:
+    post:
+      summary: Evaluates colummns data quality
+      description: |
+        Pass a feature list to the model and column to assess and receive a evaluation of that target data quality
+      parameters:
+      - name: target
+        in: path
+        description: Target column
+        required: true
+        schema:
+          type: string
+          default: IMC
+          enum:
+          - A_PARA
+          - A_GESTA
+          - EUTOCITO_ANTERIOR
+          - VENTOSAS_ANTERIOR
+          - FORCEPS_ANTERIOR
+          - CESARIANAS_ANTERIOR
+          - IDADE_MATERNA
+
+      requestBody:
+        description: Pet object that needs to be added to the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Features'
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualityEval'
+components:
+  schemas:
+    Features:
+
+      type: object
+      properties:
+        A_PARA:
+          type: integer
+          format: float
+        A_GESTA:
+          type: integer
+          format: float
+        EUTOCITO_ANTERIOR:
+          type: integer
+          format: float
+        VENTOSAS_ANTERIOR:
+          type: integer
+          format: float
+        FORCEPS_ANTERIOR:
+          type: integer
+          format: float
+        CESARIANAS_ANTERIOR:
+          type: integer
+          format: float
+        IDADE_MATERNA:
+          type: integer
+          format: float
+        PESO_INICIAL:
+          type: integer
+          format: float
+        IMC:
+          type: integer
+          format: float
+        NUMERO_CONSULTAS_PRE_NATAL:
+          type: integer
+          format: float
+        IDADE_GESTACIONAL_ADMISSAO:
+          type: integer
+          format: float
+        SEMANAS_GESTACAO_PARTO:
+          type: integer
+          format: float
+        PESO_ADMISSAO_INTERNAMENTO:
+          type: integer
+          format: float
+
+      xml:
+        name: Features
+    QualityEval:
+      type: object
+      properties:
+        result:
+          type: string
+          enum:
+          - "ok"
+          - "weak outlier"
+          - "strong outlier"
