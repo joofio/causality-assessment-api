@@ -29,16 +29,15 @@ function(req,res){
 #* @post /eval_causality
 #* @parser json
 #* @serializer json
-
+#* @body InputData
 function(req,res){
   data <-tryCatch(jsonlite::parse_json(req$postBody,simplifyVector=TRUE), error=function(e) NULL  )
   #data <- req$postBody
   if (is.null(data)){
     res$status<-400
-    list(error="No data")
+    list(error=jsonlite::unbox("No data"))
   } 
-  print(is.null(data))
-  print(data)
+ 
   ## Instanciar dois futuros vectores como nulos, para opcoes de N/A ## 
   vec <- NULL; st <- NULL 
   ## Obter os valores das opcoes selecionadas do form html para o R ##
@@ -54,7 +53,17 @@ function(req,res){
   ineffective_r <- as.character(data$INEFFECTIVE);
   pharmagroup_r <- as.character(data$PHARMAGROUP); 
   
-  
+  print(described_r)
+  print(reintroduced_r)
+  print(reappeared_r)
+  print(administration_r) 
+  print(notifier_r) 
+  print(suspended_r)
+  print(improved_r)
+  print(concomitant_r)
+  print(interact_r)
+  print(ineffective_r)
+  print(pharmagroup_r)
   ## Atribuir o label e o respetivo valor aos vectores instanciados ##
   if(length(described_r) >0) { 
     vec <- c(vec, as.character("Described")) 
@@ -114,7 +123,7 @@ con_score_no_int <-as.numeric(con_score_no)
 con_score_yes_round<-round(con_score_yes_int, digits = 2)
 con_score_no_round<-round(con_score_no_int, digits = 2)
 
-ret<-c(def_score_yes_round,pro_score_yes_round,pos_score_yes_round,con_score_yes_round)
+ret<-list(definitve_score=def_score_yes_round,probable_score=pro_score_yes_round,possible_score=pos_score_yes_round,conditional_score=con_score_yes_round)
 ret
 }
 #* @plumber

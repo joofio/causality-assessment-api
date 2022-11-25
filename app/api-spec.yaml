@@ -4,100 +4,156 @@ servers:
   - description: Localhost
     url: http://127.0.0.1:5762
 info:
-  description: This is a simple Plumber API with the spec defined in an external file
+  description: 
   version: 1.0.0
-  title: Simple Plumber
-
+  title: Causality Assessment Tool
+  contact:
+    name: "API Support"
+    url: "http://www.example.com/support"
+    email: "support@example.com"
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-  /eval_quality/{target}:
+  /eval_causality:
     post:
-      summary: Evaluates colummns data quality
+      summary: Evaluates causality level based on data given
       description: |
-        Pass a feature list to the model and column to assess and receive a evaluation of that target data quality
+        Pass a feature list to the model and returns the probabilities for causality assessment
       parameters:
-      - name: target
-        in: path
-        description: Target column
-        required: true
-        schema:
-          type: string
-          default: IMC
-          enum:
-          - A_PARA
-          - A_GESTA
-          - EUTOCITO_ANTERIOR
-          - VENTOSAS_ANTERIOR
-          - FORCEPS_ANTERIOR
-          - CESARIANAS_ANTERIOR
-          - IDADE_MATERNA
-
       requestBody:
-        description: Pet object that needs to be added to the store
+        description: Data already known beforehand
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Features'
+              $ref: '#/components/schemas/InputData'
       responses:
         200:
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QualityEval'
+                $ref: '#/components/schemas/CausalityEvaluation'
+
+        405:
+          description: Method Not Allowed
+          content: 
+            'application/json': {}
+            'application/xml': {}
 components:
   schemas:
-    Features:
-
+    InputData:
       type: object
       properties:
-        A_PARA:
-          type: integer
-          format: float
-        A_GESTA:
-          type: integer
-          format: float
-        EUTOCITO_ANTERIOR:
-          type: integer
-          format: float
-        VENTOSAS_ANTERIOR:
-          type: integer
-          format: float
-        FORCEPS_ANTERIOR:
-          type: integer
-          format: float
-        CESARIANAS_ANTERIOR:
-          type: integer
-          format: float
-        IDADE_MATERNA:
-          type: integer
-          format: float
-        PESO_INICIAL:
-          type: integer
-          format: float
-        IMC:
-          type: integer
-          format: float
-        NUMERO_CONSULTAS_PRE_NATAL:
-          type: integer
-          format: float
-        IDADE_GESTACIONAL_ADMISSAO:
-          type: integer
-          format: float
-        SEMANAS_GESTACAO_PARTO:
-          type: integer
-          format: float
-        PESO_ADMISSAO_INTERNAMENTO:
-          type: integer
-          format: float
-
-      xml:
-        name: Features
-    QualityEval:
-      type: object
-      properties:
-        result:
+        DESCRIBED:
+          description: "DESCRIBED"
           type: string
           enum:
-          - "ok"
-          - "weak outlier"
-          - "strong outlier"
+           - "No"
+           - "Yes"
+        REINTRODUCED:
+          description: "REINTRODUCED"
+          type: string
+          enum:
+           - "No"
+           - "Yes"
+        REAPPEARED:
+          description: "REAPPEARED AFTER REINTRODUCTION"
+          type: string
+          enum:
+           - "No"
+           - "Yes"
+           - "Not Reintroduced"
+        ADMINISTRATION:
+          description: "ADMINISTRATION"
+          type: string
+          enum:
+           - "Oral"
+           - "Injectable"
+           - "Topical"
+        NOTIFIER:
+          description: "REPORTER"
+          type: string
+          enum:
+           - "Physician"
+           - "Nurse"
+           - "Pharmacist"
+        SUSPENDED:
+          description: "SUSPENDED"
+          type: string
+          enum:
+           - "No"
+           - "Yes"
+           - "Reduced"
+        IMPROVED:
+          description: "IMPROVED AFTER SUSPENSION"
+          type: string
+          enum:
+           - "No"
+           - "Yes"
+           - "Not Suspended"
+        CONCOMITANT:
+          description: "CONCOMITANT DRUGS"
+          type: string
+          enum:
+           - "No"
+           - "Yes"
+        INTERACT:
+          description: "SUSPISCION OF INTERACTION"
+          type: string
+          enum:
+           - "No"
+           - "Yes"
+        INEFFECTIVE:
+          description: "DRUG INEFFECTIVENESS"
+          type: string
+          enum:
+           - "No"
+           - "Yes" 
+        PHARMAGROUP:
+          description: "PHARMACOTHERAPEUTIC GROUP"
+          type: string
+          enum:
+           - "Drugs for Skin Disorders"
+           - "Drugs for Eve Disorders"
+           - "Antiallergic Medication"
+           - "Antinfectious"
+           - "Antineoplastic Drugs & Immunemodulators"
+           - "Cardiovascular System"
+           - "Gastrointestinal System"
+           - "Genitourinary System"
+           - "Locomotor System"
+           - "Respiratory System"
+           - "Hormones"
+           - "Diagnosis Media"
+           - "Nutrition"
+           - "Blood"
+           - "Central Nervous System"
+           - "Drugs to Treat Poisoning"
+           - "Vaccines & Immunoglobulins"
+
+    GeneralError:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
+
+    CausalityEvaluation:
+      type: object
+      properties:
+        definitve_score:
+          type: integer
+          format: float
+        probable_score:
+          type: integer
+          format: float
+        possible_score:
+          type: integer
+          format: float
+        conditional_score:
+          type: integer
+          format: float
