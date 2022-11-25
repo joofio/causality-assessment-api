@@ -2,4 +2,4 @@
 #  install.packages("BiocManager")
 #BiocManager::install(c("graph", "RBGL", "Rgraphviz"))
 
-install.packages(c("plumber", "dplyr","logger","jsonlite","yaml","fs"))
+install.packages(c("plumber", "dplyr","logger","jsonlite","yaml","fs","gRain"))
