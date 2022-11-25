@@ -1,4 +1,4 @@
-FROM rstudio/plumber
+FROM rocker/r-ver:3
 
 # copy model and scoring script
 RUN mkdir /app
