@@ -35,8 +35,9 @@ function(req,res){
   #data <- req$postBody
   if (is.null(data)){
     res$status<-400
-    list(error=jsonlite::unbox("No data"))
+    return(list(error=jsonlite::unbox("No data")))
   } 
+
  
   ## Instanciar dois futuros vectores como nulos, para opcoes de N/A ## 
   vec <- NULL; st <- NULL 
@@ -64,6 +65,79 @@ function(req,res){
   print(interact_r)
   print(ineffective_r)
   print(pharmagroup_r)
+  
+
+  data_correct<-TRUE
+  
+  if (!described_r %in% c("No","Yes")&& length(described_r)>0 ){
+    print("error in described_r")
+    data_correct<-FALSE
+  } 
+  if (!reintroduced_r %in% c("No","Yes","") && length(described_r)>0 ){
+    print("error in reintroduced_r")
+    data_correct<-FALSE
+  } 
+  if (!reappeared_r %in% c("No","Yes","Not Reintroduced")&& length(described_r)>0 ){
+    print("error in reappeared_r")
+    data_correct<-FALSE
+  } 
+  if (!administration_r %in% c("Oral", "Injectable", "Topical") && length(administration_r)>0 ){
+    print("error in administration_r")
+    data_correct<-FALSE
+  } 
+  if (!notifier_r %in% c("Physician", "Nurse", "Pharmacist")&& length(notifier_r)>0 ){
+    print("error in notifier_r")
+    data_correct<-FALSE
+  } 
+  if (!suspended_r %in% c("No", "Yes", "Reduced")&& length(suspended_r)>0 ){
+    print("error in suspended_r")
+    data_correct<-FALSE
+  } 
+  if (!improved_r %in% c("No", "Yes", "Not Suspended") && length(improved_r)>0 ){
+    print("error in improved_r")
+    data_correct<-FALSE
+  } 
+  if (!concomitant_r %in% c("No", "Yes")&& length(concomitant_r)>0 ){
+    print("error in concomitant_r")
+    data_correct<-FALSE
+  } 
+  if (!interact_r %in% c("No", "Yes")&& length(interact_r)>0 ){
+    print("error in interact_r")
+    data_correct<-FALSE
+  } 
+  if (!ineffective_r %in% c("No", "Yes")&& length(ineffective_r)>0 ){
+    print("error in ineffective_r")
+    data_correct<-FALSE
+  } 
+  if (!pharmagroup_r %in% c("Drugs for Skin Disorders",
+           "Drugs for Eve Disorders",
+           "Antiallergic Medication",
+           "Antinfectious",
+            "Antineoplastic Drugs & Immunemodulators",
+            "Cardiovascular System",
+            "Gastrointestinal System",
+            "Genitourinary System",
+            "Locomotor System",
+            "Respiratory System",
+            "Hormones",
+            "Diagnosis Media",
+            "Nutrition",
+            "Blood",
+            "Central Nervous System",
+            "Drugs to Treat Poisoning",
+            "Vaccines & Immunoglobulins")&& length(pharmagroup_r)>0 ){
+    print("error in pharmagroup_r")
+    data_correct<-FALSE
+  } 
+  
+  
+  print(data_correct)
+  if  (!data_correct){
+    res$status<-400
+    return(list(error=jsonlite::unbox("Error in input data")))
+    
+  }
+  
   ## Atribuir o label e o respetivo valor aos vectores instanciados ##
   if(length(described_r) >0) { 
     vec <- c(vec, as.character("Described")) 
@@ -129,5 +203,6 @@ ret
 #* @plumber
 function(pr) {
   pr %>%
-    pr_set_api_spec("api-spec.yaml")
+    pr_set_api_spec("api-spec.yaml")%>%validate_api_spec()
+
 }
