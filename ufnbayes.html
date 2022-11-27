@@ -1,0 +1,624 @@
+<html>
+<head>
+
+<script src="jquery/jquery-1.7.2.js"></script>
+<script src="ui/jquery.ui.core.js"></script>
+<script src="ui/jquery.ui.widget.js"></script>
+<script src="ui/jquery.ui.button.js"></script>
+<script language="javascript" type="text/javascript" src="jquery/jquery-ui-1.8.10.custom.min.js" ></script>
+<link rel="stylesheet" href="ufnbayes_css/jquery-ui.css" type="text/css" media="print, projection, screen">
+
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+		<title>UFNBayes v0.1 | CINTESIS - Center for Health Technology and Services Research</title>
+
+		<meta name="keywords" content="FMUP">
+		<meta http-equiv="CONTENT-LANGUAGE" content="PT">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="pragma" content="no-cache">
+
+</head>
+
+<body>
+
+<!--<img src="images/pic_mountain.jpg" alt="Mountain View" style="width:304px;height:228px;">-->
+<center>
+
+ 
+
+<div class="form_cabecalho">
+	<div class="form_parte">
+		<table cellspacing="2" cellpadding="0" border="0" width="850">
+			<tbody>
+				<tr>
+				   	<td align="center" width="100%">	
+				   		<div class="form_nome1">CINTESIS - Center for Health Technology and Services Research<br><br><b>UFNBayes v0.1</b> </div>
+				 	</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>	
+
+
+<div class="form_parte">
+	<table align="center" cellspacing="0" cellpadding="0" border="1" width="800">
+		<tbody>
+			<tr>
+				<td valign="top">
+					<form action="ufnbayes.html" method="POST">
+						<table align="center" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+								    <td align="center" colspan="6">
+									<table border="1px solid" cellspacing="5" cellpadding="5" width="100%">
+										<tbody>
+											<tr>
+												<td class="form_titulo1_b" width="100%" colspan="6">UFNBayes v0.1</td>
+											</tr>
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >DESCRIBED</td>
+												<td>
+												    <div id="DESCRIBED">
+												    	<input name="DESCRIBED" id="described_na" type="radio" value="" checked="checked"><label for="described_na">?</label>
+												        <input name="DESCRIBED" id="described1" type="radio" value="Yes" ><label for="described1">YES</label>
+												        <input name="DESCRIBED" id="described2" type="radio" value="No" ><label	for="described2">NO</label>       
+												    </div>
+											    </td>
+											</tr>
+
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >SUSPENDED</td>
+												<td>
+												    <div id="SUSPENDED">
+												    	<input name="SUSPENDED" id="suspended_na" type="radio" value="" checked="checked"><label	for="suspended_na">?</label>
+												        <input name="SUSPENDED" id="suspended1" type="radio" value="Yes" ><label	for="suspended1">YES</label>
+												        <input name="SUSPENDED" id="suspended2" type="radio" value="Reduced" ><label	for="suspended2">REDUCED</label>        
+												        <input name="SUSPENDED" id="suspended3" type="radio" value="No" ><label	for="suspended3">NO</label>        
+												    </div>
+												</td> 
+											</tr>
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >IMPROVED AFTER SUSPENSION</td>
+												<td>
+												    <div id="IMPROVED">
+												    	<input name="IMPROVED" id="improved_na" type="radio" value="" checked="checked"><label for="improved_na">?</label>
+												        <input name="IMPROVED" id="improved1" type="radio" value="Yes" ><label for="improved1">YES</label>
+												        <input name="IMPROVED" id="improved2" type="radio" value="No" ><label for="improved2">NO</label>        
+												        <input name="IMPROVED" id="improved3" type="radio" value="NA" ><label for="improved3">NOT SUSPENDED</label>
+												    </div>
+												</td>
+											</tr>
+																					
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >REINTRODUCED</td>
+												<td>
+												    <div id="REINTRODUCED">
+												    	<input name="REINTRODUCED" id="reintroduced_na" type="radio" value="" checked="checked"><label for="reintroduced_na">?</label>
+												        <input name="REINTRODUCED" id="reintroduced1" type="radio" value="Yes" ><label for="reintroduced1">YES</label>
+												        <input name="REINTRODUCED" id="reintroduced2" type="radio" value="No" ><label	for="reintroduced2">NO</label>       
+												    </div>
+											    </td>
+											</tr>
+
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >REAPPEARED AFTER REINTRODUCTION</td>
+												<td>
+												    <div id="REAPPEARED">
+												    	<input name="REAPPEARED" id="reappeared_na" type="radio" value="" checked="checked"><label	for="reappeared_na">?</label>
+												        <input name="REAPPEARED" id="reappeared3" type="radio" value="Yes" ><label	for="reappeared3">YES</label>
+												        <input name="REAPPEARED" id="reappeared2" type="radio" value="No" ><label	for="reappeared2">NO</label>        
+												        <input name="REAPPEARED" id="reappeared1" type="radio" value="NA" ><label	for="reappeared1">NOT REINTRODUCED</label>
+												    </div>
+												</td>
+											</tr>
+
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >PHARMACOTHERAPEUTIC GROUP</td>
+												<td>
+												  <div id="PHARMAGROUPDIV">
+												    <select id="PHARMAGROUP" name="PHARMAGROUP">
+												      <option id="pharmagroup_na" value="">?</option>
+												      <option id="pharmagroup1" value="DrugsForSkinDisorders">Drugs for Skin Disorders</option>
+												      <option id="pharmagroup2" value="DrugsForEyeDisorders">Drugs for Eye Disorders</option>
+												      <option id="pharmagroup3" value="AntiallergicMedication">Antiallergic Medication</option>
+												      <option id="pharmagroup4" value="Antiinfectious">Antiinfectious</option>
+												      <option id="pharmagroup5" value="AntineoplasticDrugsImmunemodulators">Antineoplastic Drugs &amp; Immunemodulators</option>
+												      <option id="pharmagroup6" value="CardiovascularSystem">Cardiovascular System</option>
+												      <option id="pharmagroup7" value="GastrointestinalSystem">Gastrointestinal System</option>
+												      <option id="pharmagroup8" value="GenitourinarySystem">Genitourinary System</option>
+												      <option id="pharmagroup9" value="LocomotorSystem">Locomotor System</option>
+												      <option id="pharmagroup10" value="RespiratorySystem">Respiratory System</option>
+												      <option id="pharmagroup11" value="Hormones">Hormones</option>
+												      <option id="pharmagroup12" value="DiagnosisMedia">Diagnosis Media</option>
+												      <option id="pharmagroup13" value="Nutrition">Nutrition</option>
+												      <option id="pharmagroup14" value="Blood">Blood</option>
+												      <option id="pharmagroup15" value="CentralNervousSystem">Central Nervous System</option>
+												      <option id="pharmagroup16" value="DrugsToTreatPoisoning">Drugs to Treat Poisoning</option>
+												      <option id="pharmagroup17" value="VaccinesImmunoglobulins">Vaccines &amp; Immunoglobulins</option>
+												    </select>
+												    </div>
+											    </td>
+											</tr>
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >ADMINISTRATION</td>
+												<td>
+												    <div id="ADMINISTRATION">
+												    	<input name="ADMINISTRATION" id="administration_na" type="radio" value="" checked="checked"><label	for="administration_na">?</label>
+												        <input name="ADMINISTRATION" id="administration1" type="radio" value="Oral" ><label	for="administration1">ORAL</label>
+												        <input name="ADMINISTRATION" id="administration2" type="radio" value="Injectable" ><label	for="administration2">INJECTABLE</label>
+												        <input name="ADMINISTRATION" id="administration3" type="radio" value="Topical" ><label	for="administration3">TOPICAL</label>         
+												    </div>
+											    </td>
+											</tr>
+
+
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >CONCOMITANT DRUGS</td>
+												<td>
+												    <div id="CONCOMITANT">
+												    	<input name="CONCOMITANT" id="concomitant_na" type="radio" value="" checked="checked"><label for="concomitant_na">?</label>
+												        <input name="CONCOMITANT" id="concomitant1" type="radio" value="Yes" ><label for="concomitant1">YES</label>
+												        <input name="CONCOMITANT" id="concomitant2" type="radio" value="No" ><label	for="concomitant2">NO</label>       
+												    </div>
+											    </td>
+											</tr>
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >SUSPISCION OF INTERACTION</td>
+												<td>
+												    <div id="INTERACT">
+												    	<input name="INTERACT" id="interact_na" type="radio" value="" checked="checked"><label for="interact_na">?</label>
+												        <input name="INTERACT" id="interact1" type="radio" value="Yes" ><label for="interact1">YES</label>
+												        <input name="INTERACT" id="interact2" type="radio" value="No" ><label	for="interact2">NO</label>       
+												    </div>
+											    </td>
+											</tr>
+
+										    <tr>
+												<td class="form_titulo1_b" valign="middle" >REPORTER</td>
+												<td>
+												    <div id="NOTIFIER">
+												    	<input name="NOTIFIER" id="notifier_na" type="radio" value="" checked="checked"><label for="notifier_na">?</label>
+												        <input name="NOTIFIER" id="notifier3" type="radio" value="Physician"><label	for="notifier3">PHYSICIAN</label>      
+												        <input name="NOTIFIER" id="notifier2" type="radio" value="Pharmacist" ><label for="notifier2">PHARMACIST</label>
+												        <input name="NOTIFIER" id="notifier1" type="radio" value="Nurse" ><label for="notifier1">NURSE</label>
+												    </div>
+												</td> 
+											</tr>
+											<tr>
+												<td class="form_titulo1_b" valign="middle" >DRUG INEFFECTIVENESS</td>
+												<td>
+												    <div id="INEFFECTIVE">
+												    	<input name="INEFFECTIVE" id="ineffective_na" type="radio" value="" checked="checked"><label for="ineffective_na">?</label>
+												        <input name="INEFFECTIVE" id="ineffective1" type="radio" value="Yes" ><label for="ineffective1">YES</label>
+												        <input name="INEFFECTIVE" id="ineffective2" type="radio" value="No" ><label	for="ineffective2">NO</label>       
+												    </div>
+											    </td>
+											</tr>
+
+										</tbody>
+									</table>
+								</tr>
+							</tbody>
+						</table>
+					
+				
+
+
+
+
+<%
+## Fazer Load ao environment R que se pretende usar ###
+load("/var/www/environments_R/ufn_form.RData");
+
+## Instanciar dois futuros vectores como nulos, para opcoes de N/A ##
+vec <- NULL;
+st <- NULL
+
+## Obter os valores das opcoes selecionadas do form html para o R ##
+described_r <- as.character(POST$DESCRIBED);
+reintroduced_r <- as.character(POST$REINTRODUCED);
+reappeared_r <- as.character(POST$REAPPEARED);
+administration_r <- as.character(POST$ADMINISTRATION);
+notifier_r <- as.character(POST$NOTIFIER);
+suspended_r <- as.character(POST$SUSPENDED);
+improved_r <- as.character(POST$IMPROVED);
+concomitant_r <- as.character(POST$CONCOMITANT);
+interact_r <- as.character(POST$INTERACT);
+ineffective_r <- as.character(POST$INEFFECTIVE);
+pharmagroup_r <- as.character(POST$PHARMAGROUP);
+
+
+## Atribuir o label e o respetivo valor aos vectores instanciados ##
+
+if (length(described_r) >0) {
+   vec <- c(vec, as.character("Described"))
+   st <- c(st, as.character(POST$DESCRIBED))  
+}
+
+if (length(reintroduced_r) >0) {
+   vec <- c(vec, as.character("Reintroduced"))
+   st <- c(st, as.character(POST$REINTRODUCED))  
+}
+
+if (length(reappeared_r) >0) {
+   vec <- c(vec, as.character("Reappeared"))
+   st <- c(st, as.character(POST$REAPPEARED))  
+}
+
+if (length(administration_r) >0) {
+   vec <- c(vec, as.character("Administration"))
+   st <- c(st, as.character(POST$ADMINISTRATION))  
+}
+
+if (length(ineffective_r) >0) {
+   vec <- c(vec, as.character("DrugIneffective"))
+   st <- c(st, as.character(POST$INEFFECTIVE)) 
+}
+
+if (length(pharmagroup_r) >0) {
+   vec <- c(vec, as.character("PharmaGroup"))
+   st <- c(st, as.character(POST$PHARMAGROUP)) 
+}
+
+if (length(notifier_r) >0) {
+   vec <- c(vec, as.character("Notifier"))
+   st <- c(st, as.character(POST$NOTIFIER)) 
+}
+
+if (length(concomitant_r) >0) {
+   vec <- c(vec, as.character("Concomitant"))
+   st <- c(st, as.character(POST$SUSPENDED))  
+}
+
+if (length(interact_r) >0) {
+   vec <- c(vec, as.character("SuspectedInteraction"))
+   st <- c(st, as.character(POST$INTERACT))  
+}
+
+if (length(suspended_r) >0) {
+   vec <- c(vec, as.character("Suspended"))
+   st <- c(st, as.character(POST$SUSPENDED))  
+}
+
+if (length(improved_r) >0) {
+   vec <- c(vec, as.character("ImprovedAfterSuspension"))
+   st <- c(st, as.character(POST$IMPROVED))  
+}
+
+## Resultados da funcao / chamada ##
+result_definite <- query(model=ufn.net, outcome="Definite", factors=vec, states=st);
+result_probable <- query(model=ufn.net, outcome="Probable", factors=vec, states=st);
+result_possible <- query(model=ufn.net, outcome="Possible", factors=vec, states=st);
+result_conditional <- query(model=ufn.net, outcome="Conditional", factors=vec, states=st);
+
+def_score_yes <- result_definite[c(FALSE,TRUE)];
+def_score_no <- result_definite[c(TRUE,FALSE)];
+def_score_yes_int <-as.numeric(def_score_yes);
+def_score_no_int <-as.numeric(def_score_no);
+def_score_yes_round<-round(def_score_yes_int, digits = 2);
+def_score_no_round<-round(def_score_no_int, digits = 2);
+
+pro_score_yes <- result_probable[c(FALSE,TRUE)];
+pro_score_no <- result_probable[c(TRUE,FALSE)];
+pro_score_yes_int <-as.numeric(pro_score_yes);
+pro_score_no_int <-as.numeric(pro_score_no);
+pro_score_yes_round<-round(pro_score_yes_int, digits = 2);
+pro_score_no_round<-round(pro_score_no_int, digits = 2);
+
+pos_score_yes <- result_possible[c(FALSE,TRUE)];
+pos_score_no <- result_possible[c(TRUE,FALSE)];
+pos_score_yes_int <-as.numeric(pos_score_yes);
+pos_score_no_int <-as.numeric(pos_score_no);
+pos_score_yes_round<-round(pos_score_yes_int, digits = 2);
+pos_score_no_round<-round(pos_score_no_int, digits = 2);
+
+con_score_yes <- result_conditional[c(FALSE,TRUE)];
+con_score_no <- result_conditional[c(TRUE,FALSE)];
+con_score_yes_int <-as.numeric(con_score_yes);
+con_score_no_int <-as.numeric(con_score_no);
+con_score_yes_round<-round(con_score_yes_int, digits = 2);
+con_score_no_round<-round(con_score_no_int, digits = 2);
+
+
+%>
+						<p align="center"><button id="reset">Reset</button>&nbsp;<input type="submit" value="Calculate" /></p>
+						<table align="center" cellspacing="0" cellpadding="0" border="0" width="400">
+							<tr>
+							  <td valign="middle" align="center">
+							    <table align="center" cellspacing="0" cellpadding="0" border="solid" width="150">
+							      <tr>
+								<td class="form_titulo1_b" valign="middle" colspan="2">CERTAIN</td>
+							      </tr>
+							      <tr>
+								<td class="form_titulo1_b" valign="middle" width="75">YES</td>
+								<td class="form_titulo1_b" valign="middle" width="75">NO</td>
+							      </tr>
+							      <tr>
+								<td class="form_texto_a" valign="middle"><% cat(def_score_yes_round*100,"%",sep="") %></td>
+								<td class="form_texto_a" valign="center"><% cat(def_score_no_round*100,"%",sep="") %></td>
+							      </tr> 
+							    </table>
+							  </td>
+							  <td valign="middle" align="center">
+							    <table align="center" cellspacing="0" cellpadding="0" border="solid" width="150">
+							      <tr>
+								<td class="form_titulo1_b" valign="middle" colspan="2">PROBABLE</td>
+							      </tr>
+							      <tr>
+								<td class="form_titulo1_b" valign="middle" width="75">YES</td>
+								<td class="form_titulo1_b" valign="middle" width="75">NO</td>
+							      </tr>
+							      <tr>
+								<td class="form_texto_a" valign="middle"><% cat(pro_score_yes_round*100,"%",sep="") %></td>
+								<td class="form_texto_a" valign="center"><% cat(pro_score_no_round*100,"%",sep="") %></td>
+							      </tr> 
+							    </table>
+							  </td>
+							</tr>
+							<tr>
+							  <td valign="middle" align="center" colspan="2" height="20"></td>
+							</tr>
+							<tr>
+							  <td valign="middle" align="center">
+							    <table align="center" cellspacing="0" cellpadding="0" border="solid" width="150">
+							      <tr>
+								<td class="form_titulo1_b" valign="middle" colspan="2">POSSIBLE</td>
+							      </tr>
+							      <tr>
+								<td class="form_titulo1_b" valign="middle" width="75">YES</td>
+								<td class="form_titulo1_b" valign="middle" width="75">NO</td>
+							      </tr>
+							      <tr>
+								<td class="form_texto_a" valign="middle"><% cat(pos_score_yes_round*100,"%",sep="") %></td>
+								<td class="form_texto_a" valign="center"><% cat(pos_score_no_round*100,"%",sep="") %></td>
+							      </tr> 
+							    </table>
+							  </td>
+							  <td valign="middle" align="center">
+							    <table align="center" cellspacing="0" cellpadding="0" border="solid" width="150">
+							      <tr>
+								<td class="form_titulo1_b" valign="middle" colspan="2">CONDITIONAL</td>
+							      </tr>
+							      <tr>
+								<td class="form_titulo1_b" valign="middle" width="75">YES</td>
+								<td class="form_titulo1_b" valign="middle" width="75">NO</td>
+							      </tr>
+							      <tr>
+								<td class="form_texto_a" valign="middle"><% cat(con_score_yes_round*100,"%",sep="") %></td>
+								<td class="form_texto_a" valign="center"><% cat(con_score_no_round*100,"%",sep="") %></td>
+							      </tr> 
+							    </table>
+							  </td>
+							</tr>
+							<tr>
+							  <td valign="middle" align="center" colspan="2" height="20"></td>
+							</tr>
+							</table>
+						<p></p>
+						<fieldset align="center">
+							<legend><b>Scientific Support:</b></legend>
+								  <p>Rodrigues PP, Ferreira-Santos D, Silva A, Pol&oacute;nia J, Ribeiro-Vaz I. (2018) <b>Causality assessment of adverse drug reaction reports using an expert-defined Bayesian network.</b> <em>Artificial Intelligence in Medicine</em> (in press). DOI: <a href="https://doi.org/10.1016/j.artmed.2018.07.005" target="_new">10.1016/j.artmed.2018.07.005</a></p>
+						</fieldset>
+						<p></p>
+						<fieldset align="center">
+							<legend><b>About UFNBayes:</b></legend>
+								<p><b>UFNBayes v0.1 </b> (September 2018)<p>&copy <b>CINTESIS</b> - Center for Health Technology and Services Research - University of Porto, Portugal
+								<p>This is an academic research tool currently under peer-review validation; all other uses are not allowed.
+						</fieldset>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</center>
+</body>
+</html>
+
+<script>
+// window.sessionStorage.clear();
+
+$(function() {
+    $( "input[type=submit], a, button" )
+      .button()
+      .click(function() {
+      });
+
+  });
+
+$('#reset').on('click', function() {
+	var itemValue = 'n/a';
+    $("input[name=\"ADMINISTRATION\"][value=\"\"]").click();
+    $("input[name=\"REINTRODUCED\"][value=\"\"]").click();
+    $("input[name=\"IMPROVED\"][value=\"\"]").click();
+    $("input[name=\"REAPPEARED\"][value=\"\"]").click();
+    $("input[name=\"NOTIFIER\"][value=\"\"]").click();
+    $("input[name=\"SUSPENDED\"][value=\"\"]").click();
+    $("input[name=\"DESCRIBED\"][value=\"\"]").click();
+    $("input[name=\"INEFFECTIVE\"][value=\"\"]").click();
+    $("input[name=\"PHARMAGROUP\"][value=\"\"]").click();
+    $("input[name=\"CONCOMITANT\"][value=\"\"]").click();
+    $("input[name=\"INTERACT\"][value=\"\"]").click();
+    sessionStorage.clear();
+
+});
+
+
+$(function() {
+	$("input[name=\"DESCRIBED\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem('described', value);
+    });
+	var itemValue = sessionStorage.getItem('described');
+	if (itemValue !== null) {
+		$("input[name=\"DESCRIBED\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("input[name=\"INEFFECTIVE\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem('ineffective', value);
+    });
+	var itemValue = sessionStorage.getItem('ineffective');
+	if (itemValue !== null) {
+		$("input[name=\"INEFFECTIVE\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("input[name=\"CONCOMITANT\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem('concomitant', value);
+    });
+	var itemValue = sessionStorage.getItem('concomitant');
+	if (itemValue !== null) {
+		$("input[name=\"CONCOMITANT\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("input[name=\"INTERACT\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem('interact', value);
+    });
+	var itemValue = sessionStorage.getItem('interact');
+	if (itemValue !== null) {
+		$("input[name=\"INTERACT\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("#PHARMAGROUP").change(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem('pharmagroup', value);
+                console.log("changed "+value);
+    });
+	var itemValue = sessionStorage.getItem('pharmagroup');
+	if (itemValue !== null) {
+                $("#PHARMAGROUP").val(itemValue);
+                console.log(itemValue);
+//		$("input[name=\"PHARMAGROUP\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+
+$(function() {
+	$("input[name=\"ADMINISTRATION\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem('administration', value);
+    });
+	var itemValue = sessionStorage.getItem('administration');
+	if (itemValue !== null) {
+		$("input[name=\"ADMINISTRATION\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("input[name=\"REINTRODUCED\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem("reintroduced", value);
+    });
+	var itemValue = sessionStorage.getItem("reintroduced");
+	if (itemValue !== null) {
+		$("input[name=\"REINTRODUCED\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("input[name=\"NOTIFIER\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem("notifier", value);
+    });
+	var itemValue = sessionStorage.getItem("notifier");
+	if (itemValue !== null) {
+		$("input[name=\"NOTIFIER\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("input[name=\"SUSPENDED\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem("suspended", value);
+    });
+	var itemValue = sessionStorage.getItem("suspended");
+	if (itemValue !== null) {
+		$("input[name=\"SUSPENDED\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("input[name=\"REAPPEARED\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem("reappeared", value);
+    });
+	var itemValue = sessionStorage.getItem("reappeared");
+	if (itemValue !== null) {
+		$("input[name=\"REAPPEARED\"][value=\""+itemValue+"\"]").click();
+	}
+});
+
+$(function() {
+	$("input[name=\"IMPROVED\"]").click(function(){
+		var thisElem = $(this);
+		var value = thisElem.val();
+		sessionStorage.setItem("improved", value);
+    });
+	var itemValue = sessionStorage.getItem("improved");
+	if (itemValue !== null) {
+		$("input[name=\"IMPROVED\"][value=\""+itemValue+"\"]").click();
+	}
+});
+    
+$(function() {
+		$("#ADMINISTRATION").buttonset();
+		});
+
+$(function() {
+		$("#REINTRODUCED").buttonset();
+		});
+
+$(function() {
+		$("#NOTIFIER").buttonset();
+		});
+
+$(function() {
+		$("#SUSPENDED").buttonset();
+		});
+
+$(function() {
+		$("#REAPPEARED").buttonset();
+		});
+
+$(function() {
+		$("#IMPROVED").buttonset();
+		});
+
+$(function() {
+		$("#DESCRIBED").buttonset();
+		});
+
+$(function() {
+		$("#INEFFECTIVE").buttonset();
+		});
+
+$(function() {
+		$("#CONCOMITANT").buttonset();
+		});
+
+$(function() {
+		$("#INTERACT").buttonset();
+		});
+
+</script>
