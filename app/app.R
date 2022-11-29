@@ -12,4 +12,3 @@ log_appender(appender_tee(tempfile("plumber_", log_dir, ".log")))
 port <- 8000
 server <- plumb("/app/plumber.R")
 server$run(host="0.0.0.0",port= as.numeric(port))
-

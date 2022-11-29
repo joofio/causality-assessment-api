@@ -44,7 +44,7 @@ function(req,res){
   ## Obter os valores das opcoes selecionadas do form html para o R ##
   described_r <- as.character(data$DESCRIBED); 
   reintroduced_r <- as.character(data$REINTRODUCED); 
-  reappeared_r <- toupper(as.character(data$REAPPEARED));
+  reappeared_r <- as.character(data$REAPPEARED);
   administration_r <- as.character(data$ADMINISTRATION); 
   notifier_r <- as.character(data$NOTIFIER);
   suspended_r <- as.character(data$SUSPENDED); 
@@ -77,7 +77,7 @@ function(req,res){
     print("error in reintroduced_r")
     data_correct<-FALSE
   } 
-  if (!reappeared_r %in% c("NO","YES","NA")&& length(reappeared_r)>0 ){
+  if (!reappeared_r %in% c("No","Yes","NA")&& length(reappeared_r)>0 ){
     print("error in reappeared_r")
     data_correct<-FALSE
   } 
@@ -146,7 +146,7 @@ function(req,res){
   if(length(reintroduced_r) >0) { vec <- c(vec, as.character("Reintroduced"))
   st <- c(st, as.character(data$REINTRODUCED)) }
   if(length(reappeared_r) >0) { vec <- c(vec, as.character("Reappeared")) 
-  st <- c(st, as.character(data$REAPPEARED)) } 
+  st <- c(st, toupper(as.character(data$REAPPEARED))) } 
   if(length(administration_r) >0) { vec <- c(vec, as.character("Administration")) 
   st <- c(st, as.character(data$ADMINISTRATION)) } 
   if(length(ineffective_r) >0) { vec <- c(vec, as.character("DrugIneffective")) 
