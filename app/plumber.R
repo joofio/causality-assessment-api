@@ -198,7 +198,7 @@ con_score_yes_round<-round(con_score_yes_int, digits = 2)
 con_score_no_round<-round(con_score_no_int, digits = 2)
 
 ret<-list(definitve_score=def_score_yes_round,probable_score=pro_score_yes_round,possible_score=pos_score_yes_round,conditional_score=con_score_yes_round)
-ret
+return(ret)
 }
 #* @plumber
 function(pr) {
