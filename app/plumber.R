@@ -73,11 +73,11 @@ function(req,res){
     print("error in described_r")
     data_correct<-FALSE
   } 
-  if (!reintroduced_r %in% c("No","Yes","") && length(described_r)>0 ){
+  if (!reintroduced_r %in% c("No","Yes") && length(described_r)>0 ){
     print("error in reintroduced_r")
     data_correct<-FALSE
   } 
-  if (!reappeared_r %in% c("No","Yes","Not Reintroduced")&& length(described_r)>0 ){
+  if (!reappeared_r %in% c("NO","YES","NA")&& length(described_r)>0 ){
     print("error in reappeared_r")
     data_correct<-FALSE
   } 
@@ -93,7 +93,7 @@ function(req,res){
     print("error in suspended_r")
     data_correct<-FALSE
   } 
-  if (!improved_r %in% c("No", "Yes", "Not Suspended") && length(improved_r)>0 ){
+  if (!improved_r %in% c("No", "Yes", "NA") && length(improved_r)>0 ){
     print("error in improved_r")
     data_correct<-FALSE
   } 
