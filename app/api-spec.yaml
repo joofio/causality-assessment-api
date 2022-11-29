@@ -63,7 +63,7 @@ components:
           enum:
            - "No"
            - "Yes"
-           - "Not Reintroduced"
+           - "NA"
         ADMINISTRATION:
           description: "ADMINISTRATION"
           type: string
@@ -91,7 +91,7 @@ components:
           enum:
            - "No"
            - "Yes"
-           - "Not Suspended"
+           - "NA"
         CONCOMITANT:
           description: "CONCOMITANT DRUGS"
           type: string

@@ -44,7 +44,7 @@ function(req,res){
   ## Obter os valores das opcoes selecionadas do form html para o R ##
   described_r <- as.character(data$DESCRIBED); 
   reintroduced_r <- as.character(data$REINTRODUCED); 
-  reappeared_r <- as.character(data$REAPPEARED);
+  reappeared_r <- toupper(as.character(data$REAPPEARED));
   administration_r <- as.character(data$ADMINISTRATION); 
   notifier_r <- as.character(data$NOTIFIER);
   suspended_r <- as.character(data$SUSPENDED); 
