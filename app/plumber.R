@@ -73,11 +73,11 @@ function(req,res){
     print("error in described_r")
     data_correct<-FALSE
   } 
-  if (!reintroduced_r %in% c("No","Yes") && length(described_r)>0 ){
+  if (!reintroduced_r %in% c("No","Yes") && length(reintroduced_r)>0 ){
     print("error in reintroduced_r")
     data_correct<-FALSE
   } 
-  if (!reappeared_r %in% c("NO","YES","NA")&& length(described_r)>0 ){
+  if (!reappeared_r %in% c("NO","YES","NA")&& length(reappeared_r)>0 ){
     print("error in reappeared_r")
     data_correct<-FALSE
   } 
