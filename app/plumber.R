@@ -71,13 +71,13 @@ function(req,res){
   input_error<-c()
   if (!described_r %in% c("No","Yes")&& length(described_r)>0 ){
     print("error in described_r")
-  input_error <- append(input_error,c("described_r"))
+  input_error <- append(input_error,c("described"))
 
     data_correct<-FALSE
   } 
   if (!reintroduced_r %in% c("No","Yes") && length(reintroduced_r)>0 ){
     print("error in reintroduced_r")
-      input_error <- append(input_error,c("reintroduced_r"))
+      input_error <- append(input_error,c("reintroduced"))
 
     data_correct<-FALSE
   } 
@@ -89,43 +89,43 @@ function(req,res){
   } 
   if (!administration_r %in% c("Oral", "Injectable", "Topical") && length(administration_r)>0 ){
     print("error in administration_r")
-      input_error <- append(input_error,c("administration_r"))
+      input_error <- append(input_error,c("administration"))
 
     data_correct<-FALSE
   } 
   if (!notifier_r %in% c("Physician", "Nurse", "Pharmacist","Other")&& length(notifier_r)>0 ){
     print("error in notifier_r")
-      input_error <- append(input_error,c("notifier_r"))
+      input_error <- append(input_error,c("notifier"))
 
     data_correct<-FALSE
   } 
   if (!suspended_r %in% c("No", "Yes", "Reduced")&& length(suspended_r)>0 ){
     print("error in suspended_r")
-      input_error <- append(input_error,c("suspended_r"))
+      input_error <- append(input_error,c("suspended"))
 
     data_correct<-FALSE
   } 
   if (!improved_r %in% c("No", "Yes", "NA") && length(improved_r)>0 ){
     print("error in improved_r")
-      input_error <- append(input_error,c("improved_r"))
+      input_error <- append(input_error,c("improved"))
 
     data_correct<-FALSE
   } 
   if (!concomitant_r %in% c("No", "Yes")&& length(concomitant_r)>0 ){
     print("error in concomitant_r")
-      input_error <- append(input_error,c("concomitant_r"))
+      input_error <- append(input_error,c("concomitant"))
 
     data_correct<-FALSE
   } 
   if (!interact_r %in% c("No", "Yes")&& length(interact_r)>0 ){
     print("error in interact_r")
-      input_error <- append(input_error,c("described_r"))
+      input_error <- append(input_error,c("described"))
 
     data_correct<-FALSE
   } 
   if (!ineffective_r %in% c("No", "Yes")&& length(ineffective_r)>0 ){
     print("error in ineffective_r")
-      input_error <- append(input_error,c("ineffective_r"))
+      input_error <- append(input_error,c("ineffective"))
 
     data_correct<-FALSE
   } 
@@ -147,7 +147,7 @@ function(req,res){
             "Drugs to Treat Poisoning",
             "Vaccines & Immunoglobulins")&& length(pharmagroup_r)>0 ){
     print("error in pharmagroup_r")
-      input_error <- append(input_error,c("pharmagroup_r"))
+      input_error <- append(input_error,c("pharmagroup"))
 
     data_correct<-FALSE
   } 
