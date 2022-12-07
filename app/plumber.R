@@ -68,45 +68,65 @@ function(req,res){
   
 
   data_correct<-TRUE
-  
+  input_error<-c()
   if (!described_r %in% c("No","Yes")&& length(described_r)>0 ){
     print("error in described_r")
+  input_error <- append(input_error,c("described_r"))
+
     data_correct<-FALSE
   } 
   if (!reintroduced_r %in% c("No","Yes") && length(reintroduced_r)>0 ){
     print("error in reintroduced_r")
+      input_error <- append(input_error,c("reintroduced_r"))
+
     data_correct<-FALSE
   } 
   if (!reappeared_r %in% c("No","Yes","NA")&& length(reappeared_r)>0 ){
     print("error in reappeared_r")
+      input_error <- append(input_error,c("reappeared_r"))
+
     data_correct<-FALSE
   } 
   if (!administration_r %in% c("Oral", "Injectable", "Topical") && length(administration_r)>0 ){
     print("error in administration_r")
+      input_error <- append(input_error,c("administration_r"))
+
     data_correct<-FALSE
   } 
-  if (!notifier_r %in% c("Physician", "Nurse", "Pharmacist")&& length(notifier_r)>0 ){
+  if (!notifier_r %in% c("Physician", "Nurse", "Pharmacist","Other")&& length(notifier_r)>0 ){
     print("error in notifier_r")
+      input_error <- append(input_error,c("notifier_r"))
+
     data_correct<-FALSE
   } 
   if (!suspended_r %in% c("No", "Yes", "Reduced")&& length(suspended_r)>0 ){
     print("error in suspended_r")
+      input_error <- append(input_error,c("suspended_r"))
+
     data_correct<-FALSE
   } 
   if (!improved_r %in% c("No", "Yes", "NA") && length(improved_r)>0 ){
     print("error in improved_r")
+      input_error <- append(input_error,c("improved_r"))
+
     data_correct<-FALSE
   } 
   if (!concomitant_r %in% c("No", "Yes")&& length(concomitant_r)>0 ){
     print("error in concomitant_r")
+      input_error <- append(input_error,c("concomitant_r"))
+
     data_correct<-FALSE
   } 
   if (!interact_r %in% c("No", "Yes")&& length(interact_r)>0 ){
     print("error in interact_r")
+      input_error <- append(input_error,c("described_r"))
+
     data_correct<-FALSE
   } 
   if (!ineffective_r %in% c("No", "Yes")&& length(ineffective_r)>0 ){
     print("error in ineffective_r")
+      input_error <- append(input_error,c("ineffective_r"))
+
     data_correct<-FALSE
   } 
   if (!pharmagroup_r %in% c("Drugs for Skin Disorders",
@@ -127,6 +147,8 @@ function(req,res){
             "Drugs to Treat Poisoning",
             "Vaccines & Immunoglobulins")&& length(pharmagroup_r)>0 ){
     print("error in pharmagroup_r")
+      input_error <- append(input_error,c("pharmagroup_r"))
+
     data_correct<-FALSE
   } 
   
@@ -134,7 +156,7 @@ function(req,res){
   print(data_correct)
   if  (!data_correct){
     res$status<-400
-    return(list(error=jsonlite::unbox("Error in input data")))
+    return(list(error=jsonlite::unbox("Error in input data"),input_error=input_error))
     
   }
   
