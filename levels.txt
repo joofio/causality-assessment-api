@@ -1,16 +1,31 @@
-$Probable
+$Described
 [1] "No"  "Yes"
 
 $Reintroduced
 [1] "No"  "Yes"
 
-$Concomitant
-[1] "No"  "Yes"
+$Reappeared
+[1] "NA"  "No"  "Yes"
+
+$Administration
+[1] "Injectable" "Oral"       "Topical"   
+
+$Notifier
+[1] "Nurse"      "Pharmacist" "Physician" 
 
 $Suspended
 [1] "NA"      "No"      "Reduced" "Yes"    
 
-$Possible
+$ImprovedAfterSuspension
+[1] "NA"  "No"  "Yes"
+
+$Concomitant
+[1] "No"  "Yes"
+
+$SuspectedInteraction
+[1] "No"  "Yes"
+
+$DrugIneffective
 [1] "No"  "Yes"
 
 $PharmaGroup
@@ -20,29 +35,14 @@ $PharmaGroup
 [13] "Nutrition"                           "Blood"                               "CentralNervousSystem"                "DrugsToTreatPoisoning"              
 [17] "VaccinesImmunoglobulins"            
 
-$DrugIneffective
-[1] "No"  "Yes"
-
-$ImprovedAfterSuspension
-[1] "NA"  "No"  "Yes"
-
-$Reappeared
-[1] "NA"  "No"  "Yes"
-
-$Described
+$Conditional
 [1] "No"  "Yes"
 
 $Definite
 [1] "No"  "Yes"
 
-$Administration
-[1] "Injectable" "Oral"       "Topical"   
-
-$Notifier
-[1] "Nurse"      "Pharmacist" "Physician" 
-
-$SuspectedInteraction
+$Probable
 [1] "No"  "Yes"
 
-$Conditional
+$Possible
 [1] "No"  "Yes"

@@ -155,23 +155,23 @@ function(req,res){
       input_error <- append(input_error,c("ineffective"))
     data_correct<-FALSE
   } 
-  if (!pharmagroup_r %in% c("Drugs for Skin Disorders",
-           "Drugs for Eve Disorders",
-           "Antiallergic Medication",
-           "Antinfectious",
-            "Antineoplastic Drugs & Immunemodulators",
-            "Cardiovascular System",
-            "Gastrointestinal System",
-            "Genitourinary System",
-            "Locomotor System",
-            "Respiratory System",
-            "Hormones",
-            "Diagnosis Media",
-            "Nutrition",
-            "Blood",
-            "Central Nervous System",
-            "Drugs to Treat Poisoning",
-            "Vaccines & Immunoglobulins")&& length(pharmagroup_r)>0 ){
+  if (!pharmagroup_r %in% c("DrugsForSkinDisorders",
+           "DrugsForEyeDisorders",
+           "AntiallergicMedication",
+          "Antiinfectious",
+           "AntineoplasticDrugsImmunemodulators",
+           "CardiovascularSystem",
+           "GastrointestinalSystem",
+           "GenitourinarySystem",
+           "LocomotorSystem",
+           "RespiratorySystem",
+           "Hormones",
+           "DiagnosisMedia",
+           "Nutrition",
+           "Blood",
+           "CentralNervousSystem",
+           "DrugsToTreatPoisoning",
+           "VaccinesImmunoglobulins")&& length(pharmagroup_r)>0 ){
     print("error in pharmagroup_r")
       input_error <- append(input_error,c("pharmagroup"))
     data_correct<-FALSE
