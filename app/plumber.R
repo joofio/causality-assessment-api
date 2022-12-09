@@ -67,66 +67,92 @@ function(req,res){
   print(pharmagroup_r)
   
 
+  
+
+
+
+
   data_correct<-TRUE
   input_error<-c()
+  
+  ###Described chr 1:2] "No" "Yes"
+
   if (!described_r %in% c("No","Yes")&& length(described_r)>0 ){
     print("error in described_r")
   input_error <- append(input_error,c("described"))
-
     data_correct<-FALSE
   } 
+  
+  
+  ##  Reintroduced chr 1:2] "No" "Yes"
   if (!reintroduced_r %in% c("No","Yes") && length(reintroduced_r)>0 ){
     print("error in reintroduced_r")
       input_error <- append(input_error,c("reintroduced"))
-
     data_correct<-FALSE
   } 
+  ###Reappeared chr [1:3] "NA" "No" "Yes'
+
   if (!reappeared_r %in% c("No","Yes","NA")&& length(reappeared_r)>0 ){
     print("error in reappeared_r")
       input_error <- append(input_error,c("reappeared_r"))
-
     data_correct<-FALSE
   } 
+  
+  ###Administration chr [1:3] "Injectable" "Oral" "Topical"
+
   if (!administration_r %in% c("Oral", "Injectable", "Topical") && length(administration_r)>0 ){
     print("error in administration_r")
       input_error <- append(input_error,c("administration"))
-
     data_correct<-FALSE
   } 
-  if (!notifier_r %in% c("Physician", "Nurse", "Pharmacist","Other")&& length(notifier_r)>0 ){
+  
+  ###$Notifier
+  ###[1] "Nurse"      "Pharmacist" "Physician" 
+
+  if (!notifier_r %in% c("Physician", "Nurse", "Pharmacist") && length(notifier_r)>0 ){
     print("error in notifier_r")
       input_error <- append(input_error,c("notifier"))
-
     data_correct<-FALSE
   } 
-  if (!suspended_r %in% c("No", "Yes", "Reduced")&& length(suspended_r)>0 ){
+  
+  ###Suspended  "NA" "No" "Reduced" "Yes"
+
+  if (!suspended_r %in% c("No", "Yes", "Reduced","NA")&& length(suspended_r)>0 ){
     print("error in suspended_r")
       input_error <- append(input_error,c("suspended"))
-
     data_correct<-FALSE
   } 
+
+  ###$ImprovedAfterSuspension
+  ###[1] "NA"  "No"  "Yes"
+
   if (!improved_r %in% c("No", "Yes", "NA") && length(improved_r)>0 ){
     print("error in improved_r")
       input_error <- append(input_error,c("improved"))
-
     data_correct<-FALSE
   } 
-  if (!concomitant_r %in% c("No", "Yes")&& length(concomitant_r)>0 ){
+  
+  ###$Concomitant
+  ###[1] "No"  "Yes"
+
+  if (!concomitant_r %in% c("No", "Yes") && length(concomitant_r)>0 ){
     print("error in concomitant_r")
       input_error <- append(input_error,c("concomitant"))
-
     data_correct<-FALSE
   } 
-  if (!interact_r %in% c("No", "Yes")&& length(interact_r)>0 ){
+  
+  ##SuspectedInteraction chr [1:2] "No" "Yes"
+  if (!interact_r %in% c("No", "Yes") && length(interact_r)>0 ){
     print("error in interact_r")
       input_error <- append(input_error,c("described"))
-
     data_correct<-FALSE
   } 
-  if (!ineffective_r %in% c("No", "Yes")&& length(ineffective_r)>0 ){
+  
+  ###DrugIneffective chr [1:2] "No" "Yes"
+
+  if (!ineffective_r %in% c("No", "Yes") && length(ineffective_r)>0 ){
     print("error in ineffective_r")
       input_error <- append(input_error,c("ineffective"))
-
     data_correct<-FALSE
   } 
   if (!pharmagroup_r %in% c("Drugs for Skin Disorders",
@@ -148,7 +174,6 @@ function(req,res){
             "Vaccines & Immunoglobulins")&& length(pharmagroup_r)>0 ){
     print("error in pharmagroup_r")
       input_error <- append(input_error,c("pharmagroup"))
-
     data_correct<-FALSE
   } 
   
@@ -168,7 +193,7 @@ function(req,res){
   if(length(reintroduced_r) >0) { vec <- c(vec, as.character("Reintroduced"))
   st <- c(st, as.character(data$REINTRODUCED)) }
   if(length(reappeared_r) >0) { vec <- c(vec, as.character("Reappeared")) 
-  st <- c(st, toupper(as.character(data$REAPPEARED))) } 
+  st <- c(st,as.character(data$REAPPEARED)) } 
   if(length(administration_r) >0) { vec <- c(vec, as.character("Administration")) 
   st <- c(st, as.character(data$ADMINISTRATION)) } 
   if(length(ineffective_r) >0) { vec <- c(vec, as.character("DrugIneffective")) 
@@ -187,6 +212,7 @@ function(req,res){
   st <- c(st, as.character(data$IMPROVED)) }
   
   
+print(c(st=st,vec=vec))
 ## Resultados da funcao / chamada ## 
 result_definite <- query(model=ufn.net, outcome="Definite", factors=vec, states=st) 
 result_probable <- query(model=ufn.net, outcome="Probable", factors=vec, states=st) 

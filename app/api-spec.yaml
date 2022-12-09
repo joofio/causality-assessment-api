@@ -85,6 +85,7 @@ components:
            - "No"
            - "Yes"
            - "Reduced"
+           - "NA"
         IMPROVED:
           description: "IMPROVED AFTER SUSPENSION"
           type: string
@@ -114,23 +115,23 @@ components:
           description: "PHARMACOTHERAPEUTIC GROUP"
           type: string
           enum:
-           - "Drugs for Skin Disorders"
-           - "Drugs for Eve Disorders"
-           - "Antiallergic Medication"
-           - "Antinfectious"
-           - "Antineoplastic Drugs & Immunemodulators"
-           - "Cardiovascular System"
-           - "Gastrointestinal System"
-           - "Genitourinary System"
-           - "Locomotor System"
-           - "Respiratory System"
+           - "DrugsForSkinDisorders"
+           - "DrugsForEyeDisorders"
+           - "AntiallergicMedication"
+           - "Antiinfectious"
+           - "AntineoplasticDrugsImmunemodulators"
+           - "CardiovascularSystem"
+           - "GastrointestinalSystem"
+           - "GenitourinarySystem"
+           - "LocomotorSystem"
+           - "RespiratorySystem"
            - "Hormones"
-           - "Diagnosis Media"
+           - "DiagnosisMedia"
            - "Nutrition"
            - "Blood"
-           - "Central Nervous System"
-           - "Drugs to Treat Poisoning"
-           - "Vaccines & Immunoglobulins"
+           - "CentralNervousSystem"
+           - "DrugsToTreatPoisoning"
+           - "VaccinesImmunoglobulins"
 
     GeneralError:
       type: object

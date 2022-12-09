@@ -1,0 +1,48 @@
+$Probable
+[1] "No"  "Yes"
+
+$Reintroduced
+[1] "No"  "Yes"
+
+$Concomitant
+[1] "No"  "Yes"
+
+$Suspended
+[1] "NA"      "No"      "Reduced" "Yes"    
+
+$Possible
+[1] "No"  "Yes"
+
+$PharmaGroup
+ [1] "DrugsForSkinDisorders"               "DrugsForEyeDisorders"                "AntiallergicMedication"              "Antiinfectious"                     
+ [5] "AntineoplasticDrugsImmunemodulators" "CardiovascularSystem"                "GastrointestinalSystem"              "GenitourinarySystem"                
+ [9] "LocomotorSystem"                     "RespiratorySystem"                   "Hormones"                            "DiagnosisMedia"                     
+[13] "Nutrition"                           "Blood"                               "CentralNervousSystem"                "DrugsToTreatPoisoning"              
+[17] "VaccinesImmunoglobulins"            
+
+$DrugIneffective
+[1] "No"  "Yes"
+
+$ImprovedAfterSuspension
+[1] "NA"  "No"  "Yes"
+
+$Reappeared
+[1] "NA"  "No"  "Yes"
+
+$Described
+[1] "No"  "Yes"
+
+$Definite
+[1] "No"  "Yes"
+
+$Administration
+[1] "Injectable" "Oral"       "Topical"   
+
+$Notifier
+[1] "Nurse"      "Pharmacist" "Physician" 
+
+$SuspectedInteraction
+[1] "No"  "Yes"
+
+$Conditional
+[1] "No"  "Yes"
