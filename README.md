@@ -16,4 +16,5 @@ nutrition/corrective agents in blood volume and electrolyte dis-
 turbances/ drugs for skin disorders/drugs used in otorhinolar-
 yngological disorders/drugs for eye disorders/antineoplastic drugs and
 immune-modulators/drugs used to treat poisoning/vaccines and im-
-munoglobulins/diagnosis media)```
+munoglobulins/diagnosis media)
+```
