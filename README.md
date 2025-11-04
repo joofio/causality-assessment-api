@@ -1,8 +1,13 @@
-# causality-assessment-api
+# Causality Assessment API
+
+## How to
+
+```docker run -v logs:/plumber_logs  -p 8000:8000 <image>```
+
+## Paper
 
 from the [paper](https://reader.elsevier.com/reader/sd/pii/S0933365717306152?token=7C9DD4DB0AAA4D2C980DC907F0862DC8462D0E70F0E5525BCB87C73FE6AFE2B3D3A843466442383E581BED5FF4B39CFF&originRegion=eu-west-1&originCreation=20221205142619):
-https://reader.elsevier.com/reader/sd/pii/S0933365717306152?token=7C9DD4DB0AAA4D2C980DC907F0862DC8462D0E70F0E5525BCB87C73FE6AFE2B3D3A843466442383E581BED5FF4B39CFF&
-
+<https://reader.elsevier.com/reader/sd/pii/S0933365717306152?token=7C9DD4DB0AAA4D2C980DC907F0862DC8462D0E70F0E5525BCB87C73FE6AFE2B3D3A843466442383E581BED5FF4B39CFF&>
 
 ```The nomenclature used for drug classification was the
 one adopted by Portuguese Authority of Medicines and Health Products

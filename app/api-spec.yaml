@@ -17,10 +17,10 @@ info:
 paths:
   /eval_causality:
     post:
+      operationId: evalCausality
       summary: Evaluates causality level based on data given
       description: |
         Pass a feature list to the model and returns the probabilities for causality assessment
-      parameters:
       requestBody:
         description: Data already known beforehand
         content:
@@ -40,6 +40,12 @@ paths:
           content: 
             'application/json': {}
             'application/xml': {}
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralError'
 components:
   schemas:
     InputData:
