@@ -233,7 +233,7 @@ def eval_causality():
     if notifier_r:
         evidence["Notifier"] = notifier_r
     if concomitant_r:
-        evidence["Concomitant"] = str(data.get("SUSPENDED", ""))
+        evidence["Concomitant"] = concomitant_r
     if interact_r:
         evidence["SuspectedInteraction"] = interact_r
     if suspended_r:
