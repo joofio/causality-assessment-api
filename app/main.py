@@ -135,7 +135,13 @@ MODEL_PATH = os.path.join(os.path.dirname(__file__), "model_weights.json")
 MODEL = BayesianModel(MODEL_PATH)
 
 app = Flask(__name__)
-CORS(app)
+CORS(
+    app,
+    resources={
+        r"/eval_causality": {"origins": "*"},
+        r"/api/docs/*": {"origins": "*"},
+    },
+)
 
 
 def _load_request_json() -> Dict[str, str] | None:

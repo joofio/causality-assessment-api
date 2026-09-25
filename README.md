@@ -46,7 +46,7 @@ curl -X POST http://127.0.0.1:8000/eval_causality \
   }'
 ```
 
-The Python runtime loads the Bayesian network weights from `app/model_weights.json` and exposes Swagger UI at `http://127.0.0.1:8000/api/docs/`.
+The Python runtime loads the Bayesian network weights from `model_weights.json` inside the `app` directory (`app/model_weights.json` in the repository) and exposes Swagger UI at `http://127.0.0.1:8000/api/docs/`.
 
 ## Paper
 
