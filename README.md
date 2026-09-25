@@ -13,7 +13,7 @@ R runtime (legacy):
 
 ```bash
 docker build -t causality-assessment-api:r -f Dockerfile.r .
-docker run -v logs:/plumber_logs -p 8000:8000 causality-assessment-api:r
+docker run -v logs:/app/logs -p 8000:8000 causality-assessment-api:r
 ```
 
 ## Paper
