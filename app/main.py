@@ -3,7 +3,7 @@ import os
 from typing import Dict, List, Tuple
 
 import numpy as np
-from flask import Flask, jsonify, request
+from flask import Flask, Response, jsonify, request, send_file
 
 
 ALLOWED_VALUES = {
@@ -139,6 +139,40 @@ app = Flask(__name__)
 @app.get("/")
 def root():
     return jsonify({"hello": "world"})
+
+
+@app.get("/api/docs/")
+def swagger_docs():
+    return Response(
+        """<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Causality Assessment API Docs</title>
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" />
+  </head>
+  <body>
+    <div id="swagger-ui"></div>
+    <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+    <script>
+      SwaggerUIBundle({
+        url: "/api/docs/openapi.yaml",
+        dom_id: "#swagger-ui"
+      });
+    </script>
+  </body>
+</html>
+""",
+        mimetype="text/html",
+    )
+
+
+@app.get("/api/docs/openapi.yaml")
+def swagger_spec():
+    return send_file(
+        os.path.join(os.path.dirname(__file__), "api-spec.yaml"),
+        mimetype="application/yaml",
+    )
 
 
 @app.post("/eval_causality")
