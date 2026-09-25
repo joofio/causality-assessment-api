@@ -177,8 +177,7 @@ def swagger_spec():
 
 @app.post("/eval_causality")
 def eval_causality():
-    data = request.get_json(silent=True)
-    if data is None:
+    if not isinstance(data, dict):
         return jsonify({"error": "No data"}), 400
 
     described_r = str(data.get("DESCRIBED", ""))
