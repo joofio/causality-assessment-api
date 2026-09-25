@@ -4,6 +4,7 @@ from typing import Dict, List, Tuple
 
 import numpy as np
 from flask import Flask, Response, jsonify, request, send_file
+from flask_cors import CORS
 
 
 ALLOWED_VALUES = {
@@ -134,6 +135,24 @@ MODEL_PATH = os.path.join(os.path.dirname(__file__), "model_weights.json")
 MODEL = BayesianModel(MODEL_PATH)
 
 app = Flask(__name__)
+CORS(app)
+
+
+def _load_request_json() -> Dict[str, str] | None:
+    payload = request.get_json(silent=True)
+    if isinstance(payload, dict):
+        return payload
+
+    raw_payload = request.get_data(as_text=True).strip()
+    if not raw_payload:
+        return None
+
+    try:
+        parsed_payload = json.loads(raw_payload)
+    except json.JSONDecodeError:
+        return None
+
+    return parsed_payload if isinstance(parsed_payload, dict) else None
 
 
 @app.get("/")
@@ -177,6 +196,7 @@ def swagger_spec():
 
 @app.post("/eval_causality")
 def eval_causality():
+    data = _load_request_json()
     if not isinstance(data, dict):
         return jsonify({"error": "No data"}), 400
 
