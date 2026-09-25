@@ -2,7 +2,19 @@
 
 ## How to
 
-```docker run -v logs:/plumber_logs  -p 8000:8000 <image>```
+Python (default Dockerfile):
+
+```bash
+docker build -t causality-assessment-api:py .
+docker run -p 8000:8000 causality-assessment-api:py
+```
+
+R runtime (legacy):
+
+```bash
+docker build -t causality-assessment-api:r -f Dockerfile.r .
+docker run -v logs:/plumber_logs -p 8000:8000 causality-assessment-api:r
+```
 
 ## Paper
 
