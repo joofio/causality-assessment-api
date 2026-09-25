@@ -210,7 +210,7 @@ def eval_causality():
     _check(suspended_r, ALLOWED_VALUES["SUSPENDED"], "suspended")
     _check(improved_r, ALLOWED_VALUES["IMPROVED"], "improved")
     _check(concomitant_r, ALLOWED_VALUES["CONCOMITANT"], "concomitant")
-    _check(interact_r, ALLOWED_VALUES["INTERACT"], "described")
+    _check(interact_r, ALLOWED_VALUES["INTERACT"], "interact")
     _check(ineffective_r, ALLOWED_VALUES["INEFFECTIVE"], "ineffective")
     _check(pharmagroup_r, ALLOWED_VALUES["PHARMAGROUP"], "pharmagroup")
 
